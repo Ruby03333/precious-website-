@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="globe-spinner">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+            </div>
+            <h2 class="loading-text">Precious</h2>
+            <p class="loading-subtext">Initializing Secure Operations Desk...</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <div class="logo">🎓 Precious</div>
+        </div>
+        
+        <div class="header-status-panel">
+            <div class="live-clock-widget">
+                <span id="liveHeaderDate">June 06, 2026</span>
+                <span class="clock-separator">|</span>
+                <strong id="liveHeaderTime">13:19:27</strong>
+            </div>
+            <div class="admin-badge-widget">
+                <span class="badge-pulse-dot"></span>
+                <span>Console Active</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div id="home-page" class="glass-card">
+            <div class="hero-section">
+                <h1>Welcome to Precious</h1>
+                <p>Add new students directly into the core engine track database below to dynamically compile systemic metrics.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h3>Enrolled Students</h3>
+                    <div class="number" id="totalStudentsCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <h3>Active Courses</h3>
+                    <div class="number">3</div>
+                </div>
+                <div class="stat-box">
+                    <h3>Average Progress</h3>
+                    <div class="number" id="avgProgressMetrics">0%</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                
+                <div class="dash-col">
+                    <div class="info-widget text-left">
+                        <h3>📥 Provision New Student Entry</h3>
+                        <form id="enrollmentForm" onsubmit="handleStudentEnrollment(event)">
+                            <div class="form-group">
+                                <label for="studentName">Full Name</label>
+                                <input type="text" id="studentName" placeholder="e.g. Alex Mercer" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentEmail">Email Address</label>
+                                <input type="email" id="studentEmail" placeholder="e.g. alex@gmail.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentCourse">Enrolled Course Track</label>
+                                <select id="studentCourse" required>
+                                    <option value="Complete Python Bootcamp">Complete Python Bootcamp</option>
+                                    <option value="Web Development Masterclass">Web Development Masterclass</option>
+                                    <option value="UI/UX Design Fundamentals">UI/UX Design Fundamentals</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentProgress">Starting Progress (%)</label>
+                                <input type="number" id="studentProgress" min="0" max="100" placeholder="e.g. 85" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentStatus">Status</label>
+                                <select id="studentStatus" required>
+                                    <option value="active">Active</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-block form-submit-btn">Compile & Submit to Registry →</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="dash-col">
+                    <div class="info-widget">
+                        <h3>⚡ Admin Desk Quick Actions</h3>
+                        <p style="font-size: 13px; color: #57606f; margin-bottom: 15px;">Deploy quick system administrative overrides instantly:</p>
+                        <div class="quick-actions-layout">
+                            <button class="action-tile" onclick="alert('System Report Generated!')">📊 Pull Portal Report</button>
+                            <button class="action-tile" onclick="alert('Notification triggers sent to inactive profiles.')">✉️ Ping Inactive Accounts</button>
+                            <button class="action-tile" onclick="alert('Database cache cleared successfully.')">🔄 Flush Engine Cache</button>
+                        </div>
+                    </div>
+
+                    <div class="info-widget system-health-box">
+                        <h3>🛡️ Core Infrastructure Pulse</h3>
+                        <div class="health-row"><span>Gateway Cluster API</span> <span class="pulse-green">● Operational</span></div>
+                        <div class="health-row"><span>Secure Database Node</span> <span class="pulse-green">● Operational</span></div>
+                        <div class="health-row"><span>Data Engine Sync</span> <span class="pulse-green">● 99.98% SLA</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-widget docs-section">
+                <h3>⚙️ About the Precious Engine</h3>
+                <div class="docs-grid">
+                    <div class="doc-card">
+                        <h4>🧩 Reactive Data Pipelines</h4>
+                        <p>No more static mock metrics. Submitting records updates the application state cache immediately and modifies database tracks instantly inside your view panels.</p>
+                    </div>
+                    <div class="doc-card">
+                        <h4>🎨 Adaptive Layouts</h4>
+                        <p>Calculates dynamic variables instantly like average course tracking percentages to provide deep high-level administrative overviews.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-container" style="margin-top: 40px;">
+                <button class="btn" onclick="goToStudentPage()">View Student Registry →</button>
+            </div>
+        </div>
+
+        <div id="student-page" class="solid-card" style="display: none;">
+            <button class="btn btn-secondary" onclick="goToHomePage()">← Back to Main Dashboard</button>
+            <br>
+            <h2 class="page-title">Precious Student Registry</h2>
+            
+            <div class="registry-actions">
+                <input type="text" id="studentSearch" placeholder="🔍 Search student name or email..." onkeyup="filterStudents()">
+                <select id="statusFilter" onchange="filterStudents()">
+                    <option value="all">All Statuses</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="student-table" id="registryTable">
+                    <thead>
+                        <tr>
+                            <th>Student Contact</th>
+                            <th>Enrolled Course Track</th>
+                            <th>Course Progress</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
